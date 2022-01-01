@@ -24,6 +24,22 @@ class Cards:
             elif self.suit == "Wild":
                 print("Wild")
 
+    def formatCard(self):
+        if self.value is not None:
+            if self.value >= 0:
+                return f"{self.suit} {self.value}"
+            elif self.value == -1:
+                return f"{self.suit} 2+"
+            elif self.value == -2:
+                return f"{self.suit} Skip Turn"
+            elif self.value == -3:
+                return f"{self.suit} Reverse"
+        elif self.value is None:
+            if self.suit == "4PLus":
+                return "Draw 4"
+            elif self.suit == "Wild":
+                return "Wild"
+
     def checkLegal(self, obj):
         if self.value == obj.value:
             return True
