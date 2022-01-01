@@ -2,10 +2,8 @@
 #Normal cards - 76 Numbered cards of 4 suits from 0-9
 #Action cards - 8 2+ , 8 Skips, 8 Change
 #Wild Cards - 4 4+ and 4 Color Change  
-
-suits = ["Red", "Yellow", "Blue", "Green"]
-
 class Cards:
+    suits = ["Red", "Yellow", "Blue", "Green"]
     def __init__(self, suit, value=None):
         self.suit = suit
         self.value = value
@@ -21,11 +19,12 @@ class Cards:
             print("Please play a legal move")
             return False
 
-    def playPlusCards(self, player):
-        if self.value == -2 or self.suit == "4Plus":
-            player.draw()
+    def playPlusCards(self, player):    #Makes the next player draw a certain number of cards. Player parameter for Player Object. 
+        if self.value == -2:            #Uses the draw method of the player class
+            player.draw(2)
+        elif self.suit == "4Plus":
+            player.draw(4)
         
-
     def playColorChange(self):
         if self.suit == "Wild" or self.suit == "4Plus":
             c = int(input("""Choose the new color of the pile:
@@ -38,20 +37,7 @@ class Cards:
  
             
 
-#Loop for creating cards
-def createDeck():
-    for i in suits:
-        for r in range(0,10):               #Num cards
-            Cards(i,r)
 
-
-        for r in range(0,3):                #Action cards
-            for j in range(0,2):                #-2 for 2+ | -3 for Skip | -4 for Direction
-                Cards(i, -1-r)  
-    
-        Cards("4Plus")                      #4+ cards
-
-        Cards("Wild")                       #Wild
 
 
     
