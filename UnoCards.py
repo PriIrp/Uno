@@ -2,8 +2,8 @@
 #Normal cards - 76 Numbered cards of 4 suits from 0-9
 #Action cards - 8 2+ , 8 Skips, 8 Change
 #Wild Cards - 4 4+ and 4 Color Change  
+suits = ["Red", "Yellow", "Blue", "Green"]
 class Cards:
-    suits = ["Red", "Yellow", "Blue", "Green"]
     def __init__(self, suit, value=None):
         self.suit = suit
         self.value = value
