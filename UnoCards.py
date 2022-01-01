@@ -8,6 +8,22 @@ class Cards:
         self.suit = suit
         self.value = value
 
+    def showCard(self):                 
+        if self.value is not None:
+            if self.value >= 0:
+                print(f"{self.suit} {self.value}")
+            elif self.value == -1:
+                print(f"{self.suit} 2+")
+            elif self.value == -2:
+                print(f"{self.suit} Skip Turn")
+            elif self.value == -3:
+                print(f"{self.suit} Reverse")
+        elif self.value is None:
+            if self.suit == "4PLus":
+                print("Draw 4")
+            elif self.suit == "Wild":
+                print("Wild")
+
     def checkLegal(self, obj):
         if self.value == obj.value:
             return True
@@ -20,10 +36,14 @@ class Cards:
             return False
 
     def playPlusCards(self, player):    #Makes the next player draw a certain number of cards. Player parameter for Player Object. 
-        if self.value == -2:            #Uses the draw method of the player class
-            player.draw(2)
+        if self.value == -1:            #Uses the draw method of the player class
+            player.draw()
+            player.draw()
         elif self.suit == "4Plus":
-            player.draw(4)
+            player.draw()
+            player.draw()
+            player.draw()
+            player.draw()
         
     def playColorChange(self):
         if self.suit == "Wild" or self.suit == "4Plus":
