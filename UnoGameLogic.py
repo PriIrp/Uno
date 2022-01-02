@@ -73,7 +73,19 @@ def game(player, pile, list, x, i):
             break
         else:
             print("Please play a legal card or draw from the pile")
+"""
+decision = input('''Would you like to choose another card from your hand, or draw a card?
+1. Chose from Hand
+2. Draw''')
 
+    if decision == "1":
+        pass
+    elif decision == "2" or decision == "":
+        #Repeated draw mechanic
+        
+def draw
+
+"""
         
         
 #Pri, Tan
