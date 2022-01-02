@@ -13,7 +13,7 @@ class Deck:
 
 
             for r in range(0,3):                #Action cards
-                for j in range(0,2):                #-2 for 2+ | -3 for Skip | -4 for Direction
+                for j in range(0,2):                #-1 for 2+ | -2 for Skip | -3 for Direction
                     self.deck.append(Cards(i, -1-r)) 
         
             self.deck.append(Cards("4Plus"))                    #4+ cards

@@ -1,7 +1,3 @@
-from UnoDeck import Deck
-from UnoCards import Cards
-
-people = []
 class Players():
     def __init__(self, name):
         self.name = name
@@ -13,6 +9,10 @@ class Players():
         self.hand.append(deck.draw())
         self.cardNum += 1
 
+    def removeCard(self, card):
+        self.hand.remove(card)
+        self.cardNum -=1
+
     def showHand(self):
         display = []
         for i in range(0, len(self.hand)-1):
@@ -23,8 +23,15 @@ class Players():
         for i in range(0, len(self.hand)-1):
             print(f"{i}: {self.hand[i].formatCard()}")
         chosen = int(input("Choose what card to play: "))
-        return chosen
+        return self.hand[chosen]
+    
+    
 
+    def isWinner(self):
+        if self.cardNum == 0:
+            self.win = True
+            return True
+    
 
 def initPlayer(list):
     global raw_name
@@ -41,19 +48,3 @@ def initDraw(list, deck):                         #Has every player draw 7 cards
         for p in range(0, len(list)-1):
             list[p].draw(deck)
             
-
-
-
-
-d = Deck()
-d.createDeck()
-d.shuffle()
-
-initPlayer(people)
-initDraw(people, d)
-
-print(len(people))
-print(len(people[0].hand))
-
-people[0].showHand()
-people[0].chooseFromHand()
