@@ -24,5 +24,14 @@ class Deck:
         random.shuffle(self.deck)
 
     def draw(self):
+
         card = self.deck.pop(0)
         return card
+
+# deck = Deck()
+# deck.createDeck()
+
+# for x in deck.deck:
+#     print(x.formatCard())
+
+# print(len(deck.deck))

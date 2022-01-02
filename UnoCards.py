@@ -19,21 +19,10 @@ class Cards:
             elif self.value == -3:
                 return f"{self.suit} Reverse"
         elif self.value is None:
-            if self.suit == "4PLus":
+            if self.suit == "4Plus":
                 return "Draw 4"
             elif self.suit == "Wild":
                 return "Wild"
-
-    def checkLegal(self, obj):
-        if self.value == obj.value:
-            return True
-        elif self.suit == obj.value:
-            return True
-        elif self.suit == "Wild" or self.suit == "4Plus":
-            return True
-        else:
-            print("Please play a legal move")
-            return False
  
             
 

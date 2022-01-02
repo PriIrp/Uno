@@ -3,7 +3,7 @@ from UnoDeck import Deck
 import UnoPlayers as UP
 from UnoGameLogic import game, checkWinner 
 
-suits = ["Red", "Yellow", "Blue", "Green"]
+
 people = []
 pile = Cards()
 
@@ -18,12 +18,13 @@ def initiateGame():
 
 initiateGame()
 print(people)
+print(len(people))
 
-x = 0 
-i = len(people)-1
+x = 0
+i = len(people)
 
 while True:
-    game(people[x%i], pile, people, x, i)
+    game(people[x%i], pile, people, deck)
     x += 1
     if checkWinner(people[x%i]):
         pass # Winner statement

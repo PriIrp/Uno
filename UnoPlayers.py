@@ -20,7 +20,7 @@ class Players():
         print(display)
 
     def chooseFromHand(self):
-        for i in range(0, len(self.hand)-1):
+        for i in range(0, len(self.hand)):
             print(f"{i}: {self.hand[i].formatCard()}")
         chosen = int(input("Choose what card to play: "))
         return self.hand[chosen]
@@ -45,6 +45,6 @@ def initPlayer(list):
 
 def initDraw(list, deck):                         #Has every player draw 7 cards
     for i in range(0,7):
-        for p in range(0, len(list)-1):
+        for p in range(0, len(list)):
             list[p].draw(deck)
             
